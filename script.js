@@ -65,5 +65,5 @@ else if (humanScore >= computerScore) {
 }
 
 else {
-    consolde/log("YOU LOST THE GAME");
+    console.log("YOU LOST THE GAME");
 }
