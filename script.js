@@ -1,3 +1,6 @@
+let humanScore = 0;
+let computerScore = 0;
+
 function getComputerChoice(){
 
     let computerRandom = Math.random();
@@ -26,6 +29,21 @@ function getHumanChoice() {
     return humanChoice;
 }
 
-let humanScore = 0;
-let computerScore = 0;
+function playRound(comp, hum, round) {
+    if(comp == hum){
+        console.log(`Round ${round}: DRAW!`);
+    }
+
+    else if ((comp == "ROCK" && hum == "SCISSORS") || (comp == "SCISSORS" && hum == "PAPER") || (comp == "PAPER" && hum == "ROCK")){
+        console.log(`Round ${round}: COMPUTER WINS!`);
+        computerScore++;
+    }
+
+    else {
+        console.log(`Round ${round}: YOU WIN!`);
+        humanScore++;
+    }
+    console.log(`You: ${humanScore} || Computer: ${computerScore}`);
+}
+
 
