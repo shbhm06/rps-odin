@@ -18,3 +18,11 @@ function getComputerChoice(){
     return computerChoice;
 }
 
+function getHumanChoice() {
+
+    let humanChoice = prompt("enter rock/paper/scissors");
+    humanChoice = humanChoice.toUpperCase();
+
+    return humanChoice;
+}
+
