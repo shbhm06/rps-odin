@@ -47,3 +47,11 @@ function playRound(comp, hum, round) {
 }
 
 
+for (let i = 1; i<6; i++) {
+    let comp = getComputerChoice();
+    let hum = getHumanChoice();
+
+    console.log(`You chose ${hum} and computer chose ${comp}`);
+    console.log(playRound(comp, hum, i));
+}
+
