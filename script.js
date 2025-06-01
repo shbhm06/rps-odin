@@ -55,3 +55,15 @@ for (let i = 1; i<6; i++) {
     console.log(playRound(comp, hum, i));
 }
 
+console.log("GAME OVER");
+if (humanScore == computerScore) {
+    console.log("ITS A DRAW");
+}
+
+else if (humanScore >= computerScore) {
+    console.log("YOU WIN THE GAME");
+}
+
+else {
+    consolde/log("YOU LOST THE GAME");
+}
