@@ -21,49 +21,56 @@ function getComputerChoice(){
     return computerChoice;
 }
 
-function getHumanChoice() {
+const you = document.querySelector(".you");
+const comp = document.querySelector(".comp");
 
-    let humanChoice = prompt("enter rock/paper/scissors");
-    humanChoice = humanChoice.toUpperCase();
+const yourScore = document.querySelector(".yourScore");
+const compScore = document.querySelector(".compScore");
 
-    return humanChoice;
-}
+const result = document.querySelector(".result");
 
-function playRound(comp, hum, round) {
-    if(comp == hum){
-        console.log(`Round ${round}: DRAW!`);
+document.querySelector("#rock").addEventListener("click", () => { playRound("ROCK"); });
+document.querySelector("#paper").addEventListener("click", () => { playRound("PAPER"); });
+document.querySelector("#scissors").addEventListener("click", () => { playRound("SCISSORS"); });
+
+function playRound(humanChoice) {
+    if (humanScore >=5 || computerScore >=5) return;
+
+    const computerChoice = getComputerChoice();
+
+    you.textContent = humanChoice;
+    comp.textContent = computerChoice;
+
+    if (computerChoice == humanChoice){
+        
     }
 
-    else if ((comp == "ROCK" && hum == "SCISSORS") || (comp == "SCISSORS" && hum == "PAPER") || (comp == "PAPER" && hum == "ROCK")){
-        console.log(`Round ${round}: COMPUTER WINS!`);
+    else if ((computerChoice == "ROCK" && humanChoice == "SCISSORS") || (computerChoice == "SCISSORS" && humanChoice == "PAPER") || (computerChoice == "PAPER" && humanChoice == "ROCK")){
         computerScore++;
+        
     }
 
     else {
-        console.log(`Round ${round}: YOU WIN!`);
         humanScore++;
     }
-    console.log(`You: ${humanScore} || Computer: ${computerScore}`);
+
+    yourScore.textContent = humanScore;
+    compScore.textContent = computerScore;
+
+    if (humanScore === 5 || computerScore === 5){
+        declareWinner();
+    }
 }
 
-
-for (let i = 1; i<6; i++) {
-    let comp = getComputerChoice();
-    let hum = getHumanChoice();
-
-    console.log(`You chose ${hum} and computer chose ${comp}`);
-    console.log(playRound(comp, hum, i));
+function declareWinner(){
+    if(humanScore === 5){
+        result.textContent = "YOU WIN!";
+    }
+    else if(computerScore === 5){
+        result.textContent = "COMPUTER WINS!";
+    }
+    else {
+        result.textContent = "ITS A DRAW";
+    }
 }
 
-console.log("GAME OVER");
-if (humanScore == computerScore) {
-    console.log("ITS A DRAW");
-}
-
-else if (humanScore >= computerScore) {
-    console.log("YOU WIN THE GAME");
-}
-
-else {
-    console.log("YOU LOST THE GAME");
-}
